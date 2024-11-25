@@ -22,8 +22,8 @@ const signup = async (req, res) => {
         const newUser = new UserModel({ name, email, password: hashedPassword });
         await newUser.save();
 
-        res.status(201).json({
-            status: 201,
+        res.status(200).json({
+            status: 200,
             success: true,
             message: 'Signup successful',
             data: { id: newUser._id, name: newUser.name, email: newUser.email }
