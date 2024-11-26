@@ -3,12 +3,10 @@ const jwt = require('jsonwebtoken');
 const ensureAuthenticated = (req, res, next) => {
     const authHeader = req.headers['authorization'];
 
-    // Check if Authorization header exists
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res.status(403).json({ message: 'Unauthorized: JWT token required' });
     }
 
-    // Extract the token
     const token = authHeader.split(' ')[1];
 
     try {
@@ -21,3 +19,4 @@ const ensureAuthenticated = (req, res, next) => {
 };
 
 module.exports = ensureAuthenticated;
+

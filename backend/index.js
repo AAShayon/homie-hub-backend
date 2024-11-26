@@ -8,7 +8,6 @@ require('./db');
 
 // Import Routers
 const AuthRouter = require('./Routes/AuthRouter');
-const ProductRouter = require('./Routes/ProductRouter');
 const ProfileRouter = require('./Routes/ProfileRouter');
 
 const app = express();
@@ -25,11 +24,9 @@ app.get('/ping', (req, res) => {
 
 // API Routes
 app.use('/auth', AuthRouter);
-app.use('/products', ProductRouter);
 app.use('/profile', ProfileRouter);
 
 // Start the server
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on http://192.168.31.60:${PORT}`);
 });
-
